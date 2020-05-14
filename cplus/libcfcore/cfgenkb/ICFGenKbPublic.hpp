@@ -1,0 +1,536 @@
+#pragma once
+
+// Description: C++18 interface for a CFGenKb public invoker.
+
+/*
+ *	com.github.msobkow.CFCore
+ *
+ *	Copyright (c) 2020 Mark Stephen Sobkow
+ *	
+ *	This file is part of MSS Code Factory.
+ *	
+ *	MSS Code Factory is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU Lesser General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	MSS Code Factory is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU Lesser General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU Lesser General Public License
+ *	along with MSS Code Factory.  If not, see https://www.gnu.org/licenses/.
+ *	
+ *	Donations to support MSS Code Factory can be made at
+ *	https://www.paypal.com/paypalme2/MarkSobkow
+ *	
+ *	Contact Mark Stephen Sobkow at msobkow@sasktel.net for commercial licensing.
+ *
+ *	Manufactured by MSS Code Factory 2.12
+ */
+
+#include <uuid/uuid.h>
+
+#include <array>
+#include <cassert>
+#include <cstddef>
+#include <chrono>
+#include <ctime>
+#include <functional>
+#include <list>
+#include <map>
+#include <string>
+#include <vector>
+
+#include <cflib/ICFLibPublic.hpp>
+
+namespace cfcore {
+	class CFGenKbAuthorization;
+}
+
+namespace cfcore {
+
+	class CFGenKbClusterPKey;
+	class CFGenKbDefClassPKey;
+	class CFGenKbGelCachePKey;
+	class CFGenKbGelInstructionPKey;
+	class CFGenKbGelSwitchLimbPKey;
+	class CFGenKbGenItemPKey;
+	class CFGenKbHostNodePKey;
+	class CFGenKbRuleCartPKey;
+	class CFGenKbRuleTypePKey;
+	class CFGenKbSecAppPKey;
+	class CFGenKbSecDevicePKey;
+	class CFGenKbSecFormPKey;
+	class CFGenKbSecGroupPKey;
+	class CFGenKbSecGroupFormPKey;
+	class CFGenKbSecGrpIncPKey;
+	class CFGenKbSecGrpMembPKey;
+	class CFGenKbSecSessionPKey;
+	class CFGenKbSecUserPKey;
+	class CFGenKbSysClusterPKey;
+	class CFGenKbTSecGroupPKey;
+	class CFGenKbTSecGrpIncPKey;
+	class CFGenKbTSecGrpMembPKey;
+	class CFGenKbTenantPKey;
+	class CFGenKbToolPKey;
+	class CFGenKbToolSetPKey;
+
+	class CFGenKbClusterBuff;
+	class CFGenKbDefClassBuff;
+	class CFGenKbGelBoilerplateBuff;
+	class CFGenKbGelBuiltinBuff;
+	class CFGenKbGelCacheBuff;
+	class CFGenKbGelCallBuff;
+	class CFGenKbGelConstrainBuff;
+	class CFGenKbGelCounterBuff;
+	class CFGenKbGelErrorBuff;
+	class CFGenKbGelExecutableBuff;
+	class CFGenKbGelExpansionBuff;
+	class CFGenKbGelInstructionBuff;
+	class CFGenKbGelIteratorBuff;
+	class CFGenKbGelModifierBuff;
+	class CFGenKbGelPopBuff;
+	class CFGenKbGelPrefixLineBuff;
+	class CFGenKbGelReferenceBuff;
+	class CFGenKbGelSequenceBuff;
+	class CFGenKbGelSpreadBuff;
+	class CFGenKbGelSwitchBuff;
+	class CFGenKbGelSwitchLimbBuff;
+	class CFGenKbGenBindBuff;
+	class CFGenKbGenFileBuff;
+	class CFGenKbGenItemBuff;
+	class CFGenKbGenIteratorBuff;
+	class CFGenKbGenReferenceBuff;
+	class CFGenKbGenRuleBuff;
+	class CFGenKbGenTruncBuff;
+	class CFGenKbHostNodeBuff;
+	class CFGenKbRuleCartBuff;
+	class CFGenKbRuleTypeBuff;
+	class CFGenKbSecAppBuff;
+	class CFGenKbSecDeviceBuff;
+	class CFGenKbSecFormBuff;
+	class CFGenKbSecGroupBuff;
+	class CFGenKbSecGroupFormBuff;
+	class CFGenKbSecGrpIncBuff;
+	class CFGenKbSecGrpMembBuff;
+	class CFGenKbSecSessionBuff;
+	class CFGenKbSecUserBuff;
+	class CFGenKbSysClusterBuff;
+	class CFGenKbTSecGroupBuff;
+	class CFGenKbTSecGrpIncBuff;
+	class CFGenKbTSecGrpMembBuff;
+	class CFGenKbTenantBuff;
+	class CFGenKbToolBuff;
+	class CFGenKbToolSetBuff;
+
+	class CFGenKbClusterByUDomNameIdxKey;
+	class CFGenKbClusterByUDescrIdxKey;
+	class CFGenKbDefClassByNameIdxKey;
+	class CFGenKbDefClassByBaseIdxKey;
+	class CFGenKbGelCacheByTenantIdxKey;
+	class CFGenKbGelCacheByAltIdxKey;
+	class CFGenKbGelCallByCacheIdxKey;
+	class CFGenKbGelCallBySeqIdxKey;
+	class CFGenKbGelCallByCallInstIdxKey;
+	class CFGenKbGelCallByPrevInstIdxKey;
+	class CFGenKbGelCallByNextInstIdxKey;
+	class CFGenKbGelConstrainByRemainderIdxKey;
+	class CFGenKbGelExecutableByGenItemIdxKey;
+	class CFGenKbGelInstructionByTenantIdxKey;
+	class CFGenKbGelInstructionByGelCacheIdxKey;
+	class CFGenKbGelInstructionByChainIdxKey;
+	class CFGenKbGelIteratorByBeforeIdxKey;
+	class CFGenKbGelIteratorByFirstIdxKey;
+	class CFGenKbGelIteratorByEachIdxKey;
+	class CFGenKbGelIteratorByLastIdxKey;
+	class CFGenKbGelIteratorByLoneIdxKey;
+	class CFGenKbGelIteratorByEmptyIdxKey;
+	class CFGenKbGelModifierByRemainderIdxKey;
+	class CFGenKbGelPopByRemainderIdxKey;
+	class CFGenKbGelPrefixLineByRemainderIdxKey;
+	class CFGenKbGelReferenceByRemainderIdxKey;
+	class CFGenKbGelSequenceByFirstInstIdxKey;
+	class CFGenKbGelSequenceByLastInstIdxKey;
+	class CFGenKbGelSpreadByBetweenIdxKey;
+	class CFGenKbGelSpreadByBeforeIdxKey;
+	class CFGenKbGelSpreadByFirstIdxKey;
+	class CFGenKbGelSpreadByEachIdxKey;
+	class CFGenKbGelSpreadByLastIdxKey;
+	class CFGenKbGelSpreadByLoneIdxKey;
+	class CFGenKbGelSpreadByEmptyIdxKey;
+	class CFGenKbGelSwitchLimbByTenantIdxKey;
+	class CFGenKbGelSwitchLimbBySwitchIdxKey;
+	class CFGenKbGenFileByXSrcBundleKey;
+	class CFGenKbGenFileByXModNameKey;
+	class CFGenKbGenFileByXBasePkgKey;
+	class CFGenKbGenFileByXSubPkgKey;
+	class CFGenKbGenFileByXExpClsNameKey;
+	class CFGenKbGenFileByXExpKeyNameKey;
+	class CFGenKbGenFileByXExpFileNameKey;
+	class CFGenKbGenItemByTenantIdxKey;
+	class CFGenKbGenItemByCartIdxKey;
+	class CFGenKbGenItemByRuleTypeIdxKey;
+	class CFGenKbGenItemByToolSetIdxKey;
+	class CFGenKbGenItemByScopeIdxKey;
+	class CFGenKbGenItemByGenDefIdxKey;
+	class CFGenKbGenItemByAltIdxKey;
+	class CFGenKbGenItemByGelExecIdxKey;
+	class CFGenKbGenItemByProbeIdxKey;
+	class CFGenKbGenRuleByBodyIdxKey;
+	class CFGenKbHostNodeByClusterIdxKey;
+	class CFGenKbHostNodeByUDescrIdxKey;
+	class CFGenKbHostNodeByHostNameIdxKey;
+	class CFGenKbRuleCartByTenantIdxKey;
+	class CFGenKbRuleCartByNameIdxKey;
+	class CFGenKbRuleTypeByNameIdxKey;
+	class CFGenKbSecAppByClusterIdxKey;
+	class CFGenKbSecAppByUJEEMountIdxKey;
+	class CFGenKbSecDeviceByNameIdxKey;
+	class CFGenKbSecDeviceByUserIdxKey;
+	class CFGenKbSecFormByClusterIdxKey;
+	class CFGenKbSecFormBySecAppIdxKey;
+	class CFGenKbSecFormByUJEEServletIdxKey;
+	class CFGenKbSecGroupByClusterIdxKey;
+	class CFGenKbSecGroupByClusterVisIdxKey;
+	class CFGenKbSecGroupByUNameIdxKey;
+	class CFGenKbSecGroupFormByClusterIdxKey;
+	class CFGenKbSecGroupFormByGroupIdxKey;
+	class CFGenKbSecGroupFormByAppIdxKey;
+	class CFGenKbSecGroupFormByFormIdxKey;
+	class CFGenKbSecGroupFormByUFormIdxKey;
+	class CFGenKbSecGrpIncByClusterIdxKey;
+	class CFGenKbSecGrpIncByGroupIdxKey;
+	class CFGenKbSecGrpIncByIncludeIdxKey;
+	class CFGenKbSecGrpIncByUIncludeIdxKey;
+	class CFGenKbSecGrpMembByClusterIdxKey;
+	class CFGenKbSecGrpMembByGroupIdxKey;
+	class CFGenKbSecGrpMembByUserIdxKey;
+	class CFGenKbSecGrpMembByUUserIdxKey;
+	class CFGenKbSecSessionBySecUserIdxKey;
+	class CFGenKbSecSessionBySecDevIdxKey;
+	class CFGenKbSecSessionByStartIdxKey;
+	class CFGenKbSecSessionByFinishIdxKey;
+	class CFGenKbSecSessionBySecProxyIdxKey;
+	class CFGenKbSecUserByULoginIdxKey;
+	class CFGenKbSecUserByEMConfIdxKey;
+	class CFGenKbSecUserByPwdResetIdxKey;
+	class CFGenKbSecUserByDefDevIdxKey;
+	class CFGenKbSysClusterByClusterIdxKey;
+	class CFGenKbTSecGroupByTenantIdxKey;
+	class CFGenKbTSecGroupByTenantVisIdxKey;
+	class CFGenKbTSecGroupByUNameIdxKey;
+	class CFGenKbTSecGrpIncByTenantIdxKey;
+	class CFGenKbTSecGrpIncByGroupIdxKey;
+	class CFGenKbTSecGrpIncByIncludeIdxKey;
+	class CFGenKbTSecGrpIncByUIncludeIdxKey;
+	class CFGenKbTSecGrpMembByTenantIdxKey;
+	class CFGenKbTSecGrpMembByGroupIdxKey;
+	class CFGenKbTSecGrpMembByUserIdxKey;
+	class CFGenKbTSecGrpMembByUUserIdxKey;
+	class CFGenKbTenantByClusterIdxKey;
+	class CFGenKbTenantByUNameIdxKey;
+	class CFGenKbToolByNameIdxKey;
+	class CFGenKbToolByReplacesIdxKey;
+	class CFGenKbToolSetByNameIdxKey;
+	class CFGenKbToolSetByTool0IdxKey;
+	class CFGenKbToolSetByTool1IdxKey;
+	class CFGenKbToolSetByTool2IdxKey;
+	class CFGenKbToolSetByTool3IdxKey;
+	class CFGenKbToolSetByTool4IdxKey;
+	class CFGenKbToolSetByTool5IdxKey;
+	class CFGenKbToolSetByTool6IdxKey;
+	class CFGenKbToolSetByTool7IdxKey;
+
+	class ICFGenKbClusterTable;
+	class ICFGenKbDefClassTable;
+	class ICFGenKbGelBoilerplateTable;
+	class ICFGenKbGelBuiltinTable;
+	class ICFGenKbGelCacheTable;
+	class ICFGenKbGelCallTable;
+	class ICFGenKbGelConstrainTable;
+	class ICFGenKbGelCounterTable;
+	class ICFGenKbGelErrorTable;
+	class ICFGenKbGelExecutableTable;
+	class ICFGenKbGelExpansionTable;
+	class ICFGenKbGelInstructionTable;
+	class ICFGenKbGelIteratorTable;
+	class ICFGenKbGelModifierTable;
+	class ICFGenKbGelPopTable;
+	class ICFGenKbGelPrefixLineTable;
+	class ICFGenKbGelReferenceTable;
+	class ICFGenKbGelSequenceTable;
+	class ICFGenKbGelSpreadTable;
+	class ICFGenKbGelSwitchTable;
+	class ICFGenKbGelSwitchLimbTable;
+	class ICFGenKbGenBindTable;
+	class ICFGenKbGenFileTable;
+	class ICFGenKbGenItemTable;
+	class ICFGenKbGenIteratorTable;
+	class ICFGenKbGenReferenceTable;
+	class ICFGenKbGenRuleTable;
+	class ICFGenKbGenTruncTable;
+	class ICFGenKbHostNodeTable;
+	class ICFGenKbRuleCartTable;
+	class ICFGenKbRuleTypeTable;
+	class ICFGenKbSecAppTable;
+	class ICFGenKbSecDeviceTable;
+	class ICFGenKbSecFormTable;
+	class ICFGenKbSecGroupTable;
+	class ICFGenKbSecGroupFormTable;
+	class ICFGenKbSecGrpIncTable;
+	class ICFGenKbSecGrpMembTable;
+	class ICFGenKbSecSessionTable;
+	class ICFGenKbSecUserTable;
+	class ICFGenKbSysClusterTable;
+	class ICFGenKbTSecGroupTable;
+	class ICFGenKbTSecGrpIncTable;
+	class ICFGenKbTSecGrpMembTable;
+	class ICFGenKbTenantTable;
+	class ICFGenKbToolTable;
+	class ICFGenKbToolSetTable;
+}
+#include <cfgenkb/ICFGenKbSchema.hpp>
+#include <cfgenkb/ICFGenKbTablePerms.hpp>
+
+#include <cfgenkb/CFGenKbClusterPKey.hpp>
+#include <cfgenkb/CFGenKbDefClassPKey.hpp>
+#include <cfgenkb/CFGenKbGelCachePKey.hpp>
+#include <cfgenkb/CFGenKbGelInstructionPKey.hpp>
+#include <cfgenkb/CFGenKbGelSwitchLimbPKey.hpp>
+#include <cfgenkb/CFGenKbGenItemPKey.hpp>
+#include <cfgenkb/CFGenKbHostNodePKey.hpp>
+#include <cfgenkb/CFGenKbRuleCartPKey.hpp>
+#include <cfgenkb/CFGenKbRuleTypePKey.hpp>
+#include <cfgenkb/CFGenKbSecAppPKey.hpp>
+#include <cfgenkb/CFGenKbSecDevicePKey.hpp>
+#include <cfgenkb/CFGenKbSecFormPKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupPKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupFormPKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpIncPKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpMembPKey.hpp>
+#include <cfgenkb/CFGenKbSecSessionPKey.hpp>
+#include <cfgenkb/CFGenKbSecUserPKey.hpp>
+#include <cfgenkb/CFGenKbSysClusterPKey.hpp>
+#include <cfgenkb/CFGenKbTSecGroupPKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpIncPKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpMembPKey.hpp>
+#include <cfgenkb/CFGenKbTenantPKey.hpp>
+#include <cfgenkb/CFGenKbToolPKey.hpp>
+#include <cfgenkb/CFGenKbToolSetPKey.hpp>
+
+#include <cfgenkb/CFGenKbClusterBuff.hpp>
+#include <cfgenkb/CFGenKbDefClassBuff.hpp>
+#include <cfgenkb/CFGenKbGelCacheBuff.hpp>
+#include <cfgenkb/CFGenKbGelInstructionBuff.hpp>
+#include <cfgenkb/CFGenKbGelIteratorBuff.hpp>
+#include <cfgenkb/CFGenKbGelSpreadBuff.hpp>
+#include <cfgenkb/CFGenKbGelPopBuff.hpp>
+#include <cfgenkb/CFGenKbGelPrefixLineBuff.hpp>
+#include <cfgenkb/CFGenKbGelReferenceBuff.hpp>
+#include <cfgenkb/CFGenKbGelCallBuff.hpp>
+#include <cfgenkb/CFGenKbGelSequenceBuff.hpp>
+#include <cfgenkb/CFGenKbGelExecutableBuff.hpp>
+#include <cfgenkb/CFGenKbGelSwitchBuff.hpp>
+#include <cfgenkb/CFGenKbGelBoilerplateBuff.hpp>
+#include <cfgenkb/CFGenKbGelErrorBuff.hpp>
+#include <cfgenkb/CFGenKbGelBuiltinBuff.hpp>
+#include <cfgenkb/CFGenKbGelConstrainBuff.hpp>
+#include <cfgenkb/CFGenKbGelCounterBuff.hpp>
+#include <cfgenkb/CFGenKbGelExpansionBuff.hpp>
+#include <cfgenkb/CFGenKbGelModifierBuff.hpp>
+#include <cfgenkb/CFGenKbGelSwitchLimbBuff.hpp>
+#include <cfgenkb/CFGenKbGenItemBuff.hpp>
+#include <cfgenkb/CFGenKbGenIteratorBuff.hpp>
+#include <cfgenkb/CFGenKbGenReferenceBuff.hpp>
+#include <cfgenkb/CFGenKbGenRuleBuff.hpp>
+#include <cfgenkb/CFGenKbGenTruncBuff.hpp>
+#include <cfgenkb/CFGenKbGenFileBuff.hpp>
+#include <cfgenkb/CFGenKbGenBindBuff.hpp>
+#include <cfgenkb/CFGenKbHostNodeBuff.hpp>
+#include <cfgenkb/CFGenKbRuleCartBuff.hpp>
+#include <cfgenkb/CFGenKbRuleTypeBuff.hpp>
+#include <cfgenkb/CFGenKbSecAppBuff.hpp>
+#include <cfgenkb/CFGenKbSecDeviceBuff.hpp>
+#include <cfgenkb/CFGenKbSecFormBuff.hpp>
+#include <cfgenkb/CFGenKbSecGroupBuff.hpp>
+#include <cfgenkb/CFGenKbSecGroupFormBuff.hpp>
+#include <cfgenkb/CFGenKbSecGrpIncBuff.hpp>
+#include <cfgenkb/CFGenKbSecGrpMembBuff.hpp>
+#include <cfgenkb/CFGenKbSecSessionBuff.hpp>
+#include <cfgenkb/CFGenKbSecUserBuff.hpp>
+#include <cfgenkb/CFGenKbSysClusterBuff.hpp>
+#include <cfgenkb/CFGenKbTSecGroupBuff.hpp>
+#include <cfgenkb/CFGenKbTSecGrpIncBuff.hpp>
+#include <cfgenkb/CFGenKbTSecGrpMembBuff.hpp>
+#include <cfgenkb/CFGenKbTenantBuff.hpp>
+#include <cfgenkb/CFGenKbToolBuff.hpp>
+#include <cfgenkb/CFGenKbToolSetBuff.hpp>
+
+#include <cfgenkb/CFGenKbClusterByUDomNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbClusterByUDescrIdxKey.hpp>
+#include <cfgenkb/CFGenKbDefClassByNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbDefClassByBaseIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelCacheByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelCacheByAltIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelInstructionByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelInstructionByGelCacheIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelInstructionByChainIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelIteratorByBeforeIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelIteratorByFirstIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelIteratorByEachIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelIteratorByLastIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelIteratorByLoneIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelIteratorByEmptyIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSpreadByBetweenIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSpreadByBeforeIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSpreadByFirstIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSpreadByEachIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSpreadByLastIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSpreadByLoneIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSpreadByEmptyIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelPopByRemainderIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelPrefixLineByRemainderIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelReferenceByRemainderIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelCallByCacheIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelCallBySeqIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelCallByCallInstIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelCallByPrevInstIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelCallByNextInstIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSequenceByFirstInstIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSequenceByLastInstIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelExecutableByGenItemIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelConstrainByRemainderIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelModifierByRemainderIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSwitchLimbByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelSwitchLimbBySwitchIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByCartIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByRuleTypeIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByToolSetIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByScopeIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByGenDefIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByAltIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByGelExecIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenItemByProbeIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenRuleByBodyIdxKey.hpp>
+#include <cfgenkb/CFGenKbGenFileByXSrcBundleKey.hpp>
+#include <cfgenkb/CFGenKbGenFileByXModNameKey.hpp>
+#include <cfgenkb/CFGenKbGenFileByXBasePkgKey.hpp>
+#include <cfgenkb/CFGenKbGenFileByXSubPkgKey.hpp>
+#include <cfgenkb/CFGenKbGenFileByXExpClsNameKey.hpp>
+#include <cfgenkb/CFGenKbGenFileByXExpKeyNameKey.hpp>
+#include <cfgenkb/CFGenKbGenFileByXExpFileNameKey.hpp>
+#include <cfgenkb/CFGenKbHostNodeByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbHostNodeByUDescrIdxKey.hpp>
+#include <cfgenkb/CFGenKbHostNodeByHostNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbRuleCartByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbRuleCartByNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbRuleTypeByNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecAppByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecAppByUJEEMountIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecDeviceByNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecDeviceByUserIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecFormByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecFormBySecAppIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecFormByUJEEServletIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupByClusterVisIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupByUNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupFormByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupFormByGroupIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupFormByAppIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupFormByFormIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGroupFormByUFormIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpIncByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpIncByGroupIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpIncByIncludeIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpIncByUIncludeIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpMembByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpMembByGroupIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpMembByUserIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecGrpMembByUUserIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecSessionBySecUserIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecSessionBySecDevIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecSessionByStartIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecSessionByFinishIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecSessionBySecProxyIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecUserByULoginIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecUserByEMConfIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecUserByPwdResetIdxKey.hpp>
+#include <cfgenkb/CFGenKbSecUserByDefDevIdxKey.hpp>
+#include <cfgenkb/CFGenKbSysClusterByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGroupByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGroupByTenantVisIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGroupByUNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpIncByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpIncByGroupIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpIncByIncludeIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpIncByUIncludeIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpMembByTenantIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpMembByGroupIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpMembByUserIdxKey.hpp>
+#include <cfgenkb/CFGenKbTSecGrpMembByUUserIdxKey.hpp>
+#include <cfgenkb/CFGenKbTenantByClusterIdxKey.hpp>
+#include <cfgenkb/CFGenKbTenantByUNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbToolByNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbToolByReplacesIdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByNameIdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool0IdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool1IdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool2IdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool3IdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool4IdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool5IdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool6IdxKey.hpp>
+#include <cfgenkb/CFGenKbToolSetByTool7IdxKey.hpp>
+#include <cfgenkb/CFGenKbAuthorization.hpp>
+
+#include <cfgenkb/ICFGenKbClusterTable.hpp>
+#include <cfgenkb/ICFGenKbDefClassTable.hpp>
+#include <cfgenkb/ICFGenKbGelCacheTable.hpp>
+#include <cfgenkb/ICFGenKbGelInstructionTable.hpp>
+#include <cfgenkb/ICFGenKbGelIteratorTable.hpp>
+#include <cfgenkb/ICFGenKbGelSpreadTable.hpp>
+#include <cfgenkb/ICFGenKbGelPopTable.hpp>
+#include <cfgenkb/ICFGenKbGelPrefixLineTable.hpp>
+#include <cfgenkb/ICFGenKbGelReferenceTable.hpp>
+#include <cfgenkb/ICFGenKbGelCallTable.hpp>
+#include <cfgenkb/ICFGenKbGelSequenceTable.hpp>
+#include <cfgenkb/ICFGenKbGelExecutableTable.hpp>
+#include <cfgenkb/ICFGenKbGelSwitchTable.hpp>
+#include <cfgenkb/ICFGenKbGelBoilerplateTable.hpp>
+#include <cfgenkb/ICFGenKbGelErrorTable.hpp>
+#include <cfgenkb/ICFGenKbGelBuiltinTable.hpp>
+#include <cfgenkb/ICFGenKbGelConstrainTable.hpp>
+#include <cfgenkb/ICFGenKbGelCounterTable.hpp>
+#include <cfgenkb/ICFGenKbGelExpansionTable.hpp>
+#include <cfgenkb/ICFGenKbGelModifierTable.hpp>
+#include <cfgenkb/ICFGenKbGelSwitchLimbTable.hpp>
+#include <cfgenkb/ICFGenKbGenItemTable.hpp>
+#include <cfgenkb/ICFGenKbGenIteratorTable.hpp>
+#include <cfgenkb/ICFGenKbGenReferenceTable.hpp>
+#include <cfgenkb/ICFGenKbGenRuleTable.hpp>
+#include <cfgenkb/ICFGenKbGenTruncTable.hpp>
+#include <cfgenkb/ICFGenKbGenFileTable.hpp>
+#include <cfgenkb/ICFGenKbGenBindTable.hpp>
+#include <cfgenkb/ICFGenKbHostNodeTable.hpp>
+#include <cfgenkb/ICFGenKbRuleCartTable.hpp>
+#include <cfgenkb/ICFGenKbRuleTypeTable.hpp>
+#include <cfgenkb/ICFGenKbSecAppTable.hpp>
+#include <cfgenkb/ICFGenKbSecDeviceTable.hpp>
+#include <cfgenkb/ICFGenKbSecFormTable.hpp>
+#include <cfgenkb/ICFGenKbSecGroupTable.hpp>
+#include <cfgenkb/ICFGenKbSecGroupFormTable.hpp>
+#include <cfgenkb/ICFGenKbSecGrpIncTable.hpp>
+#include <cfgenkb/ICFGenKbSecGrpMembTable.hpp>
+#include <cfgenkb/ICFGenKbSecSessionTable.hpp>
+#include <cfgenkb/ICFGenKbSecUserTable.hpp>
+#include <cfgenkb/ICFGenKbSysClusterTable.hpp>
+#include <cfgenkb/ICFGenKbTSecGroupTable.hpp>
+#include <cfgenkb/ICFGenKbTSecGrpIncTable.hpp>
+#include <cfgenkb/ICFGenKbTSecGrpMembTable.hpp>
+#include <cfgenkb/ICFGenKbTenantTable.hpp>
+#include <cfgenkb/ICFGenKbToolTable.hpp>
+#include <cfgenkb/ICFGenKbToolSetTable.hpp>

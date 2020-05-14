@@ -1,0 +1,331 @@
+// Description: C++18 implementation of a ToolSet primary key object.
+
+/*
+ *	com.github.msobkow.CFCore
+ *
+ *	Copyright (c) 2020 Mark Stephen Sobkow
+ *	
+ *	This file is part of MSS Code Factory.
+ *	
+ *	MSS Code Factory is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU Lesser General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	MSS Code Factory is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU Lesser General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU Lesser General Public License
+ *	along with MSS Code Factory.  If not, see https://www.gnu.org/licenses/.
+ *	
+ *	Donations to support MSS Code Factory can be made at
+ *	https://www.paypal.com/paypalme2/MarkSobkow
+ *	
+ *	Contact Mark Stephen Sobkow at msobkow@sasktel.net for commercial licensing.
+ *
+ *	Manufactured by MSS Code Factory 2.12
+ */
+
+#include <cflib/ICFLibPublic.hpp>
+
+using namespace std;
+
+#include <cfgenkb/CFGenKbToolSetPKey.hpp>
+#include <cfgenkb/CFGenKbToolSetBuff.hpp>
+
+namespace cfcore {
+
+	const std::string CFGenKbToolSetPKey::CLASS_NAME( "CFGenKbToolSetPKey" );
+	const std::string CFGenKbToolSetPKey::S_VALUE( "value" );
+	const std::string CFGenKbToolSetPKey::S_VALUE_LENGTH( "value.length()" );
+
+	CFGenKbToolSetPKey::CFGenKbToolSetPKey() {
+		requiredId = cfcore::CFGenKbToolSetBuff::ID_INIT_VALUE;
+	}
+
+	CFGenKbToolSetPKey::CFGenKbToolSetPKey( const CFGenKbToolSetPKey& src ) {
+		requiredId = cfcore::CFGenKbToolSetBuff::ID_INIT_VALUE;
+		setRequiredId( src.getRequiredId() );
+	}
+
+	CFGenKbToolSetPKey::~CFGenKbToolSetPKey() {
+	}
+
+	const int16_t CFGenKbToolSetPKey::getRequiredId() const {
+		return( requiredId );
+	}
+
+	const int16_t* CFGenKbToolSetPKey::getRequiredIdReference() const {
+		return( &requiredId );
+	}
+
+	void CFGenKbToolSetPKey::setRequiredId( const int16_t value ) {
+		static const std::string S_ProcName( "setRequiredId" );
+		if( value < cfcore::CFGenKbToolSetBuff::ID_MIN_VALUE ) {
+			throw cflib::CFLibArgumentUnderflowException( CLASS_NAME,
+				S_ProcName,
+				1,
+				S_VALUE,
+				value,
+				cfcore::CFGenKbToolSetBuff::ID_MIN_VALUE );
+		}
+		if( value > cfcore::CFGenKbToolSetBuff::ID_MAX_VALUE ) {
+			throw cflib::CFLibArgumentOverflowException( CLASS_NAME,
+				S_ProcName,
+				1,
+				S_VALUE,
+				value,
+				cfcore::CFGenKbToolSetBuff::ID_MAX_VALUE );
+		}
+		requiredId = value;
+	}
+
+	bool CFGenKbToolSetPKey::operator <( const CFGenKbToolSetPKey& rhs ) {
+		if( getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool CFGenKbToolSetPKey::operator <( const CFGenKbToolSetBuff& rhs ) {
+		if( getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool CFGenKbToolSetPKey::operator <=( const CFGenKbToolSetPKey& rhs ) {
+		if( getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool CFGenKbToolSetPKey::operator <=( const CFGenKbToolSetBuff& rhs ) {
+		if( getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool CFGenKbToolSetPKey::operator ==( const CFGenKbToolSetPKey& rhs ) {
+		if( getRequiredId() != rhs.getRequiredId() ) {
+			return( false );
+		}
+		return( true );
+	}
+
+	bool CFGenKbToolSetPKey::operator ==( const CFGenKbToolSetBuff& rhs ) {
+		if( getRequiredId() != rhs.getRequiredId() ) {
+			return( false );
+		}
+		return( true );
+	}
+
+	bool CFGenKbToolSetPKey::operator !=( const CFGenKbToolSetPKey& rhs ) {
+		if( getRequiredId() != rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool CFGenKbToolSetPKey::operator !=( const CFGenKbToolSetBuff& rhs ) {
+		if( getRequiredId() != rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool CFGenKbToolSetPKey::operator >=( const CFGenKbToolSetPKey& rhs ) {
+		if( getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool CFGenKbToolSetPKey::operator >=( const CFGenKbToolSetBuff& rhs ) {
+		if( getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool CFGenKbToolSetPKey::operator >( const CFGenKbToolSetPKey& rhs ) {
+		if( getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool CFGenKbToolSetPKey::operator >( const CFGenKbToolSetBuff& rhs ) {
+		if( getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	CFGenKbToolSetPKey CFGenKbToolSetPKey::operator =( cfcore::CFGenKbToolSetPKey& src ) {
+		setRequiredId( src.getRequiredId() );
+		return( *this );
+	}
+
+	CFGenKbToolSetPKey CFGenKbToolSetPKey::operator =( cfcore::CFGenKbToolSetBuff& src ) {
+		setRequiredId( src.getRequiredId() );
+		return( *this );
+	}
+
+	size_t CFGenKbToolSetPKey::hashCode() const {
+		size_t hashCode = 0;
+		hashCode = ( hashCode * 0x10000 ) + getRequiredId();
+		return( hashCode );
+	}
+
+	std::string CFGenKbToolSetPKey::toString() {
+		static const std::string S_Space( " " );
+		static const std::string S_Preamble( "<CFGenKbToolSetPKey" );
+		static const std::string S_Postamble( "/>" );
+		static const std::string S_Id( "Id" );
+		std::string ret( S_Preamble );
+		ret.append( cflib::CFLibXmlUtil::formatRequiredInt16( &S_Space, S_Id, getRequiredId() ) );
+		ret.append( S_Postamble );
+		return( ret );
+	}
+}
+
+namespace std {
+
+	bool operator <(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetPKey& rhs ) {
+		if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool operator <(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetBuff& rhs ) {
+		if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool operator <=(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetPKey& rhs ) {
+		if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool operator <=(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetBuff& rhs ) {
+		if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool operator ==(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetPKey& rhs ) {
+		if( lhs.getRequiredId() != rhs.getRequiredId() ) {
+			return( false );
+		}
+		return( true );
+	}
+
+	bool operator ==(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetBuff& rhs ) {
+		if( lhs.getRequiredId() != rhs.getRequiredId() ) {
+			return( false );
+		}
+		return( true );
+	}
+
+	bool operator !=(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetPKey& rhs ) {
+		if( lhs.getRequiredId() != rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool operator !=(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetBuff& rhs ) {
+		if( lhs.getRequiredId() != rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool operator >=(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetPKey& rhs ) {
+		if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool operator >=(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetBuff& rhs ) {
+		if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( true );
+	}
+
+	bool operator >(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetPKey& rhs ) {
+		if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+
+	bool operator >(const  cfcore::CFGenKbToolSetPKey& lhs, const cfcore::CFGenKbToolSetBuff& rhs ) {
+		if( lhs.getRequiredId() < rhs.getRequiredId() ) {
+			return( false );
+		}
+		else if( lhs.getRequiredId() > rhs.getRequiredId() ) {
+			return( true );
+		}
+		return( false );
+	}
+}
+

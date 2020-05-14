@@ -1,0 +1,612 @@
+// Description: C++18 implementation for a GelIterator by BeforeIdx index key object.
+
+/*
+ *	com.github.msobkow.CFCore
+ *
+ *	Copyright (c) 2020 Mark Stephen Sobkow
+ *	
+ *	This file is part of MSS Code Factory.
+ *	
+ *	MSS Code Factory is free software: you can redistribute it and/or modify
+ *	it under the terms of the GNU Lesser General Public License as published by
+ *	the Free Software Foundation, either version 3 of the License, or
+ *	(at your option) any later version.
+ *	
+ *	MSS Code Factory is distributed in the hope that it will be useful,
+ *	but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *	GNU Lesser General Public License for more details.
+ *	
+ *	You should have received a copy of the GNU Lesser General Public License
+ *	along with MSS Code Factory.  If not, see https://www.gnu.org/licenses/.
+ *	
+ *	Donations to support MSS Code Factory can be made at
+ *	https://www.paypal.com/paypalme2/MarkSobkow
+ *	
+ *	Contact Mark Stephen Sobkow at msobkow@sasktel.net for commercial licensing.
+ *
+ *	Manufactured by MSS Code Factory 2.12
+ */
+
+#include <cflib/ICFLibPublic.hpp>
+
+using namespace std;
+
+#include <cfgenkb/CFGenKbGelIteratorByBeforeIdxKey.hpp>
+#include <cfgenkb/CFGenKbGelIteratorBuff.hpp>
+
+namespace cfcore {
+	const std::string CFGenKbGelIteratorByBeforeIdxKey::CLASS_NAME( "CFGenKbGelIteratorByBeforeIdxKey" );
+	const std::string CFGenKbGelIteratorByBeforeIdxKey::S_VALUE( "value" );
+	const std::string CFGenKbGelIteratorByBeforeIdxKey::S_VALUE_LENGTH( "value.length()" );
+
+
+	CFGenKbGelIteratorByBeforeIdxKey::CFGenKbGelIteratorByBeforeIdxKey() {
+		optionalExpandBefore = NULL;
+	}
+
+	CFGenKbGelIteratorByBeforeIdxKey::CFGenKbGelIteratorByBeforeIdxKey( const CFGenKbGelIteratorByBeforeIdxKey& src ) {
+		optionalExpandBefore = NULL;
+		if( src.isOptionalExpandBeforeNull() ) {
+			setOptionalExpandBeforeNull();
+		}
+		else {
+			setOptionalExpandBeforeValue( src.getOptionalExpandBeforeValue() );
+		}
+	}
+
+	CFGenKbGelIteratorByBeforeIdxKey::~CFGenKbGelIteratorByBeforeIdxKey() {
+		if( optionalExpandBefore != NULL ) {
+			delete optionalExpandBefore;
+			optionalExpandBefore = NULL;
+		}
+	}
+
+	const std::string& CFGenKbGelIteratorByBeforeIdxKey::getOptionalExpandBeforeValue() const {
+		static const std::string S_ProcName( "getOptionalExpandBeforeValue" );
+		if( optionalExpandBefore == NULL ) {
+			throw cflib::CFLibNullArgumentException( CLASS_NAME,
+				S_ProcName,
+				0,
+				S_VALUE );
+		}
+		return( *optionalExpandBefore );
+	}
+
+	const std::string* CFGenKbGelIteratorByBeforeIdxKey::getOptionalExpandBeforeReference() const {
+		return( optionalExpandBefore );
+	}
+
+	const bool CFGenKbGelIteratorByBeforeIdxKey::isOptionalExpandBeforeNull() const {
+		return( optionalExpandBefore == NULL );
+	}
+
+	void CFGenKbGelIteratorByBeforeIdxKey::setOptionalExpandBeforeNull() {
+		if( optionalExpandBefore != NULL ) {
+			delete optionalExpandBefore;
+			optionalExpandBefore = NULL;
+		}
+	}
+
+	void CFGenKbGelIteratorByBeforeIdxKey::setOptionalExpandBeforeValue( const std::string& value ) {
+		static const std::string S_ProcName( "setOptionalExpandBeforeValue" );
+		if( value.length() > CFGenKbGelIteratorBuff::EXPANDBEFORE_MAX_LEN ) {
+			throw cflib::CFLibArgumentOverflowException( CLASS_NAME,
+				S_ProcName,
+				1,
+				S_VALUE_LENGTH,
+				value.length(),
+				CFGenKbGelIteratorBuff::EXPANDBEFORE_MAX_LEN );
+		}
+		if( optionalExpandBefore != NULL ) {
+			delete optionalExpandBefore;
+			optionalExpandBefore = NULL;
+		}
+		optionalExpandBefore = new std::string( value );
+	}
+
+	size_t CFGenKbGelIteratorByBeforeIdxKey::hashCode() const {
+		size_t hashCode = 0;
+		if( ! isOptionalExpandBeforeNull() ) {
+			hashCode = hashCode + cflib::CFLib::hash( getOptionalExpandBeforeValue() );
+		}
+		return( hashCode );
+	}
+
+	std::string CFGenKbGelIteratorByBeforeIdxKey::toString() {
+		static const std::string S_Space( " " );
+		static const std::string S_Preamble( "<CFGenKbGelIteratorByBeforeIdxKey" );
+		static const std::string S_Postamble( "/>" );
+		static const std::string S_ExpandBefore( "ExpandBefore" );
+		std::string ret( S_Preamble );
+		if( ! isOptionalExpandBeforeNull() ) {
+			ret.append( cflib::CFLibXmlUtil::formatRequiredXmlString( &S_Space, S_ExpandBefore, getOptionalExpandBeforeValue() ) );
+		}
+		ret.append( S_Postamble );
+		return( ret );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator <( const CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator <( const CFGenKbGelIteratorBuff& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator <=( const CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( true );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator <=( const CFGenKbGelIteratorBuff& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( true );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator ==( const CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				if( getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+					return( false );
+				}
+			}
+			else {
+				return( false );
+			}
+		}
+		else {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator ==( const CFGenKbGelIteratorBuff& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				if( getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+					return( false );
+				}
+			}
+			else {
+				return( false );
+			}
+		}
+		else {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator !=( const CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator !=( const CFGenKbGelIteratorBuff& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator >=( const CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator >=( const CFGenKbGelIteratorBuff& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator >( const CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			return( false );
+		}
+		return( false );
+	}
+
+	bool CFGenKbGelIteratorByBeforeIdxKey::operator >( const CFGenKbGelIteratorBuff& rhs ) {
+		if( ! isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			return( false );
+		}
+		return( false );
+	}
+	CFGenKbGelIteratorByBeforeIdxKey CFGenKbGelIteratorByBeforeIdxKey::operator =( cfcore::CFGenKbGelIteratorByBeforeIdxKey& src ) {
+		if( src.isOptionalExpandBeforeNull() ) {
+			setOptionalExpandBeforeNull();
+		}
+		else {
+			setOptionalExpandBeforeValue( src.getOptionalExpandBeforeValue() );
+		}
+		return( *this );
+	}
+
+	CFGenKbGelIteratorByBeforeIdxKey CFGenKbGelIteratorByBeforeIdxKey::operator =( cfcore::CFGenKbGelIteratorBuff& src ) {
+		if( src.isOptionalExpandBeforeNull() ) {
+			setOptionalExpandBeforeNull();
+		}
+		else {
+			setOptionalExpandBeforeValue( src.getOptionalExpandBeforeValue() );
+		}
+		return( *this );
+	}
+
+}
+
+namespace std {
+
+	bool operator <(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool operator <(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorBuff& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool operator <=(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( true );
+	}
+
+	bool operator <=(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorBuff& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+			if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( true );
+	}
+
+	bool operator ==(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				if( lhs.getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+					return( false );
+				}
+			}
+			else {
+				return( false );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool operator ==(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorBuff& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				if( lhs.getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+					return( false );
+				}
+			}
+			else {
+				return( false );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool operator !=(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( lhs.getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool operator !=(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorBuff& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( lhs.getOptionalExpandBeforeValue() != rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+		}
+		return( false );
+	}
+
+	bool operator >=(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool operator >=(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorBuff& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( true );
+	}
+
+	bool operator >(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorByBeforeIdxKey& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( false );
+	}
+
+	bool operator >(const  cfcore::CFGenKbGelIteratorByBeforeIdxKey& lhs, const cfcore::CFGenKbGelIteratorBuff& rhs ) {
+		if( ! lhs.isOptionalExpandBeforeNull() ) {
+			if( rhs.isOptionalExpandBeforeNull() ) {
+				return( true );
+			}
+			if( lhs.getOptionalExpandBeforeValue() < rhs.getOptionalExpandBeforeValue() ) {
+				return( false );
+			}
+			else if( lhs.getOptionalExpandBeforeValue() > rhs.getOptionalExpandBeforeValue() ) {
+				return( true );
+			}
+		}
+		else {
+			if( ! rhs.isOptionalExpandBeforeNull() ) {
+				return( false );
+			}
+		}
+		return( false );
+	}
+}
+
