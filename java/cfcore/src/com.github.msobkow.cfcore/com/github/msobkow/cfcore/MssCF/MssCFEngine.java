@@ -36,7 +36,7 @@ public abstract class MssCFEngine
 extends CFGenKbSchemaObj
 {
 	public final static String		LinkName = "MssCFEngine";
-	public final static String		LinkVersion = "2.13.11189";
+	public final static String		LinkVersion = "2.13.11190";
 
 	public final static String		GeneratorName = "MssCFEngine";
 	public final static String		GeneratorVersion = LinkVersion;
