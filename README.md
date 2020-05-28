@@ -1,5 +1,5 @@
 # cfcore_2_13
-MSS Code Factory Core 2.13 provides the GEL XML language and the MssCF implementation of the GEL compiler
+MSS Code Factory 2.13 CFCore - Code Manufacturing Core
 
 Copyright 2020 Mark Stephen Sobkow
 
