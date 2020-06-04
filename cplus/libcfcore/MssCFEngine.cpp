@@ -117,7 +117,7 @@ namespace std {
 namespace cfcore {
 
 	const std::string MssCFEngine::LinkName( "MssCFEngine" );
-	const std::string MssCFEngine::LinkVersion( "2.13.11190" );
+	const std::string MssCFEngine::LinkVersion( "2.13.11192" );
 
 	const std::string MssCFEngine::GeneratorName( "MssCFEngine" );
 	const std::string MssCFEngine::GeneratorVersion( LinkVersion );
