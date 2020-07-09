@@ -1,7 +1,7 @@
 // Description: C++18 Instance Edit Object interface implementation for CFGenKb GelSequence.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	

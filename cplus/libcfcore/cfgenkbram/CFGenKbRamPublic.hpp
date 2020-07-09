@@ -3,7 +3,7 @@
 // Description: C++18 Public interface for the in-memory RAM CFGenKb schema.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	

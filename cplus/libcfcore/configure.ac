@@ -1,4 +1,4 @@
-AC_INIT([msobkow CFGenKb],2.13.11192,[msobkow@sasktel.net],[libcfgenkb],[http://msobkow.github.com/])
+AC_INIT([msscf CFGenKb],2.13.11192,[msobkow@sasktel.net],[libcfgenkb],[http://msscf.org/])
 AC_COPYRIGHT([Copyright (c) 2020 Mark Stephen Sobkow])
 AC_REVISION(2.13.11192)
 AM_INIT_AUTOMAKE([foreign])

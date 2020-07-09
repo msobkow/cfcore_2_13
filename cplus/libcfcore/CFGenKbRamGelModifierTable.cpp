@@ -2,7 +2,7 @@
 // Description: C++18 Implementation for an in-memory RAM DbIO for GelModifier.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	

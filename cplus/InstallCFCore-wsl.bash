@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#	com.github.msobkow.CFCore
+#	org.msscf.msscf.CFCore
 #
 #	Copyright (c) 2020 Mark Stephen Sobkow
 #	
@@ -30,16 +30,16 @@ MAJOR_VERSION=2
 MINOR_VERSION=13
 pushd libcfcore
 	sudo make install
-	sudo chmod 755 /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkb
-	sudo sh -c "cd /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkb && chmod 644 *.hpp"
-	sudo chmod 755 /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbobj
-	sudo sh -c "cd /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbobj && chmod 644 *.hpp"
-	sudo chmod 755 /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbram
-	sudo sh -c "cd /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbram && chmod 644 *.hpp"
-	sudo chmod 755 /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/msscf
-	sudo sh -c "cd /usr/include/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/msscf && chmod 644 *.hpp"
-	sudo chmod 755 /usr/share/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd
-	sudo chmod 644 /usr/share/msobkow/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd/*.xsd
+	sudo chmod 755 /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkb
+	sudo sh -c "cd /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkb && chmod 644 *.hpp"
+	sudo chmod 755 /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbobj
+	sudo sh -c "cd /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbobj && chmod 644 *.hpp"
+	sudo chmod 755 /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbram
+	sudo sh -c "cd /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbram && chmod 644 *.hpp"
+	sudo chmod 755 /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/msscf
+	sudo sh -c "cd /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/msscf && chmod 644 *.hpp"
+	sudo chmod 755 /usr/share/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd
+	sudo chmod 644 /usr/share/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd/*.xsd
 	sudo chmod 755 /usr/lib/*cfcore.la
 	sudo chmod 755 /usr/lib/*cfcore.so*
 	sudo ldconfig

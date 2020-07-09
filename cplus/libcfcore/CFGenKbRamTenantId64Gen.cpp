@@ -1,7 +1,7 @@
 // Description: C++18 Implementation of a Tenant 64-bit in-memory RAM Id Generator object.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	

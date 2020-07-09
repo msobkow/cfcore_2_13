@@ -1,7 +1,7 @@
 // Description: C++18 base object instance implementation for CFGenKb GelPop.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	

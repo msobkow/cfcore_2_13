@@ -1,7 +1,7 @@
 // Description: C++18 implementation of a TSecGrpMemb primary key object.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	

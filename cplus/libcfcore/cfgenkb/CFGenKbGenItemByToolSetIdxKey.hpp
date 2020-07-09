@@ -3,7 +3,7 @@
 // Description: C++18 specification for a GenItem by ToolSetIdx index key object.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	

@@ -1,7 +1,7 @@
 // Description: C++18 edit object instance implementation for CFGenKb GelBuiltin.
 
 /*
- *	com.github.msobkow.CFCore
+ *	org.msscf.msscf.CFCore
  *
  *	Copyright (c) 2020 Mark Stephen Sobkow
  *	
