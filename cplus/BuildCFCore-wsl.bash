@@ -86,8 +86,8 @@ pushd libcfcore
 	sudo sh -c "cd /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/cfgenkbram && chmod 644 *.hpp"
 	sudo chmod 755 /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/msscf
 	sudo sh -c "cd /usr/include/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/msscf && chmod 644 *.hpp"
-	sudo chmod 755 /usr/share/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd
-	sudo chmod 644 /usr/share/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd/*.xsd
+	sudo chmod 755 /opt/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd
+	sudo chmod 644 /opt/msscf/${MAJOR_VERSION}.0.${MINOR_VERSION}/xsd/*.xsd
 	sudo chmod 755 /usr/lib/*cfcore.la
 	sudo chmod 755 /usr/lib/*cfcore.so*
 	sudo ldconfig

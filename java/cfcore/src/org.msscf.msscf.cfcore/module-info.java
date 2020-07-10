@@ -24,12 +24,12 @@
  *	Please contact Mark Stephen Sobkow at msobkow@sasktel.net for commercial licensing.
  */
 
-module com.github.msobkow.cfcore {
-	exports com.github.msobkow.cfcore.CFGenKb;
-	exports com.github.msobkow.cfcore.CFGenKbObj;
-	exports com.github.msobkow.cfcore.CFGenKbRam;
-	exports com.github.msobkow.cfcore.MssCF;
-	requires transitive com.github.msobkow.cflib.CFLib;
+module org.msscf.msscf.cfcore {
+	exports org.msscf.msscf.cfcore.CFGenKb;
+	exports org.msscf.msscf.cfcore.CFGenKbObj;
+	exports org.msscf.msscf.cfcore.CFGenKbRam;
+	exports org.msscf.msscf.cfcore.MssCF;
+	requires transitive org.msscf.msscf.cflib.CFLib;
 	requires transitive java.rmi;
 	requires transitive java.sql;
 	requires org.apache.commons.io;
