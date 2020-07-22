@@ -73,7 +73,7 @@ public abstract class MssCFSaxParser extends CFLibXmlCoreSaxParser implements Co
 	/**
 	 *	The source URI for locating schemas
 	 */
-	public final static String	ROOT_SCHEMA_URI = "/msobkow/2.0.13/xsd/";
+	public final static String	ROOT_SCHEMA_URI = "/xsd/";
 
 //	Constructors
 
