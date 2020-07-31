@@ -27,7 +27,21 @@
 package org.msscf.msscf.cfcore.MssCF;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Vector;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -69,6 +83,11 @@ public abstract class MssCFSaxParser extends CFLibXmlCoreSaxParser implements Co
 	 *	The source URI for locating schemas
 	 */
 	public final static String	BASE_SCHEMA_URI = "/opt/msscf/2.0.13/xsd/";
+
+	/**
+	 *	The source URI for locating schemas on the internet
+	 */
+	public final static String	BASE_SCHEMA_HTTPS_URI = "https://msscf.org/msscf/2.0.13/xsd/";
 
 	/**
 	 *	The source URI for locating schemas

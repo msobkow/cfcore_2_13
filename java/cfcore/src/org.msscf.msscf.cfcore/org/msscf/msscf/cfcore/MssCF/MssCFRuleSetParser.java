@@ -29,9 +29,19 @@ package org.msscf.msscf.cfcore.MssCF;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Vector;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -62,6 +72,7 @@ public class MssCFRuleSetParser extends MssCFSaxParser implements ContentHandler
 	 *	The source for loading the supported schema
 	 */
 	public final static String	SCHEMA_URI = "/opt/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd";
+	public final static String	SCHEMA_HTTPS_URI = "https://msscf.org/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset.xsd";
 	public final static String	SCHEMA_ROOT_URI = "/xsd/cfgenkb-2.13-ruleset.xsd";
 
 	/**
@@ -85,7 +96,8 @@ public class MssCFRuleSetParser extends MssCFSaxParser implements ContentHandler
 		super( engine, jLogger );
 		setRootElementHandler( new RootHandler( this ) );
 		if( myGrammar == null ) {
-			InputStream input;
+			InputStream input = null;
+
 			File file = new File( SCHEMA_URI );
 			if( file.exists() ) {
 				try {
@@ -94,15 +106,34 @@ public class MssCFRuleSetParser extends MssCFSaxParser implements ContentHandler
 				catch( Exception e ) {
 					input = null;
 				}
-				if( input != null ) {
-					myGrammar = addToGrammarPool( SCHEMA_URI, input );
+			}
+
+			if( input == null ) {
+				try {
+					URI myURI = new URI( SCHEMA_HTTPS_URI );
+					URL myURL = myURI.toURL();
+					input = myURL.openStream();
+				}
+				catch( MalformedURLException e ) {
+					e.printStackTrace();
+					input = null;
+				}
+				catch( URISyntaxException e ) {
+					e.printStackTrace();
+					input = null;
+				}
+				catch( IOException e ) {
+					e.printStackTrace();
+					input = null;
 				}
 			}
-			else {
+
+			if( input == null ) {
 				input = getClass().getResourceAsStream( SCHEMA_ROOT_URI );
-				if( input != null ) {
-					myGrammar = addToGrammarPool( SCHEMA_ROOT_URI, input );
-				}
+			}
+
+			if( input != null ) {
+				myGrammar = addToGrammarPool( SCHEMA_URI, input );
 			}
 		}
 		initParser();

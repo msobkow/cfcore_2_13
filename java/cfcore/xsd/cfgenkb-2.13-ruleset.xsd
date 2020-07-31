@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns="uri://org.msscf/msscf/2.0.13/cfgenkb-2.13-ruleset" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="uri://org.msscf/2.0.13/cfgenkb-2.13-ruleset" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.13">
+<xsd:schema xmlns="uri://org.msscf/msscf/2.0.13/xsd/cfgenkb-2.13-ruleset" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="uri://org.msscf/2.0.13/xsd/cfgenkb-2.13-ruleset" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.13">
 
 <xsd:annotation>
 	<xsd:documentation xml:lang="en">
