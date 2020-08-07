@@ -764,7 +764,7 @@ extends CFGenKbGenItemEditObj
 		String outputWorkName;
 		fileSep = File.separator;
 		if (fileSep.length() == 1) {
-			outputWorkName = (baseWorkDir + fileSep + srcFileDir + fileSep + outputName).replace('/', fileSep.charAt(0));
+			outputWorkName = ( baseWorkDir + fileSep + ( srcFileDir + fileSep + outputName).replace('/', fileSep.charAt(0)) );
 			outputFullName = (outputDirName + fileSep + outputName).replace('/', fileSep.charAt(0));
 			sysDirName = outputDirName.replace( '/', fileSep.charAt(0) );
 		}
