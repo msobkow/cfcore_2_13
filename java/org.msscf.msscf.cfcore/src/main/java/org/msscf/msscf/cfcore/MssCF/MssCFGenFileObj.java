@@ -213,19 +213,19 @@ extends CFGenKbGenFileObj
 			if (subPackage != null) {
 				fullPackage = basePackage + "." + subPackage;
 				if( moduleName.length() > 0 ) {
-					srcFileDir = basePackage.replace( '.', dirSep.charAt(0) ) + dirSep + moduleName + dirSep + subPackage.replace( '.', dirSep.charAt(0) );
+					srcFileDir = basePackage + dirSep + moduleName + dirSep + subPackage.replace( '.', dirSep.charAt(0) );
 				}
 				else {
-					srcFileDir = basePackage.replace( '.', dirSep.charAt(0) ) + dirSep + subPackage.replace( '.', dirSep.charAt(0) );
+					srcFileDir = basePackage + dirSep + subPackage.replace( '.', dirSep.charAt(0) );
 				}
 			}
 			else {
 				fullPackage = basePackage;
 				if( moduleName.length() > 0 ) {
-					srcFileDir = moduleName + dirSep + basePackage.replace( '.', dirSep.charAt(0) );
+					srcFileDir = moduleName + dirSep + basePackage;
 				}
 				else {
-					srcFileDir = basePackage.replace( '.', dirSep.charAt(0) );
+					srcFileDir = basePackage;
 				}
 			}
 		}
