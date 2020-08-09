@@ -4,3 +4,8 @@
 xsd
 lib
 tomcatlib
+target
+.classpath
+.factorypath
+.project
+.settings

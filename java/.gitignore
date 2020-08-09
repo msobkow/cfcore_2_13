@@ -3,4 +3,9 @@ installer
 build
 RemoteSystemsTempFiles
 Servers
+target
+.classpath
+.factorypath
+.project
+.settings
 *.log
