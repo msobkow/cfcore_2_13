@@ -5,7 +5,7 @@
 /*
  *  MSS Code Factory CFCore 2.13 MssCF
  *
- *	Copyright 2020 Mark Stephen Sobkow
+ *	Copyright 2020-2021 Mark Stephen Sobkow
  *
  *	This file is part of MSS Code Factory.
  *
@@ -25,7 +25,7 @@
  *	Donations to support MSS Code Factory can be made at
  *	https://www.paypal.com/paypalme2/MarkSobkow
  *
- *	Please contact Mark Stephen Sobkow at msobkow@sasktel.net for commercial licensing.
+ *	Please contact Mark Stephen Sobkow at mark.sobkow@gmail.com for commercial licensing.
  */
 
 #include <cfgenkbobj/ICFGenKbSchemaObj.hpp>

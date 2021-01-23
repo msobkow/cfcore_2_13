@@ -1,7 +1,7 @@
 /*
  *  MSS Code Factory CFCore 2.13 MssCF
  *
- *	Copyright 2020 Mark Stephen Sobkow
+ *	Copyright 2020-2021 Mark Stephen Sobkow
  *
  *	This file is part of MSS Code Factory.
  *
@@ -21,7 +21,7 @@
  *	Donations to support MSS Code Factory can be made at
  *	https://www.paypal.com/paypalme2/MarkSobkow
  *
- *	Please contact Mark Stephen Sobkow at msobkow@sasktel.net for commercial licensing.
+ *	Please contact Mark Stephen Sobkow at mark.sobkow@gmail.com for commercial licensing.
  */
 
 package org.msscf.msscf.v2_13.cfcore.MssCF;
@@ -72,7 +72,7 @@ public class MssCFToolSetParser extends MssCFSaxParser implements ContentHandler
 	 *	The source for loading the supported schema
 	 */
 	public final static String	SCHEMA_URI = "/opt/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd";
-	public final static String	SCHEMA_HTTPS_URI = "https://msscf.org/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd";
+	public final static String	SCHEMA_HTTPS_URI = "https://msscode.com/msscf/2.0.13/xsd/cfgenkb-2.13-toolset.xsd";
 	public final static String	SCHEMA_ROOT_URI = "/xsd/cfgenkb-2.13-toolset.xsd";
 
 	/**

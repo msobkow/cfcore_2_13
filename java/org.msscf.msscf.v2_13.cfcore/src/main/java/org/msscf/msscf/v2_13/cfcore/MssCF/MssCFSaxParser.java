@@ -1,7 +1,7 @@
 /*
  *  MSS Code Factory CFCore 2.13 MssCF
  *
- *	Copyright 2020 Mark Stephen Sobkow
+ *	Copyright 2020-2021 Mark Stephen Sobkow
  *
  *	This file is part of MSS Code Factory.
  *
@@ -21,7 +21,7 @@
  *	Donations to support MSS Code Factory can be made at
  *	https://www.paypal.com/paypalme2/MarkSobkow
  *
- *	Please contact Mark Stephen Sobkow at msobkow@sasktel.net for commercial licensing.
+ *	Please contact Mark Stephen Sobkow at mark.sobkow@gmail.com for commercial licensing.
  */
 
 package org.msscf.msscf.v2_13.cfcore.MssCF;
@@ -87,7 +87,7 @@ public abstract class MssCFSaxParser extends CFLibXmlCoreSaxParser implements Co
 	/**
 	 *	The source URI for locating schemas on the internet
 	 */
-	public final static String	BASE_SCHEMA_HTTPS_URI = "https://msscf.org/msscf/2.0.13/xsd/";
+	public final static String	BASE_SCHEMA_HTTPS_URI = "https://msscode.com/msscf/2.0.13/xsd/";
 
 	/**
 	 *	The source URI for locating schemas

@@ -12,7 +12,7 @@
   <version>2.13.11197</version>
   <name>org.msscf.msscf.msscf.v2_13.cfcore</name>
   <description>MSS Code Factory CFCore 2.13 Generation Knowledgebase</description>
-  <url>https://msscf.org/msscf/</url>
+  <url>https://msscode.com/msscf/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
